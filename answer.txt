@@ -1,0 +1,4 @@
+2
+/opt/jfrog/artifactory/app/artifactory/tomcat/
+yes
+exit
