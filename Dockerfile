@@ -1,4 +1,4 @@
-FROM releases-docker.jfrog.io/jfrog/artifactory-pro
+FROM releases-docker.jfrog.io/jfrog/artifactory-pro:7.39.4
 
 USER root
 
