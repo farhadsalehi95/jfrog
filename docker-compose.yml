@@ -1,0 +1,24 @@
+version: '3'
+services:
+  artifactory:
+    build: .
+    container_name: artifactory
+    environment:
+      - JF_ROUTER_ENTRYPOINTS_EXTERNALPORT=8082
+    ports:
+      - 127.0.0.1:8082:8082 # for router communication
+      - 127.0.0.1:8081:8081 # for artifactory communication
+    volumes:
+      - /srv/data.vol/jfrog:/var/opt/jfrog/artifactory
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+    ulimits:
+      nproc: 300000
+      nofile:
+        soft: 300000
+        hard: 300000
